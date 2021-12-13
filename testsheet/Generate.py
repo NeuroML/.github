@@ -26,7 +26,13 @@ for cat in allrefs:
         print("Looking at: %s in %s"%(ref, name))
 
         info += '| <a href="https://github.com/%s">%s</a> |'%(ref,name)
-        info += '  [![OMV](https://github.com/%s/actions/workflows/ci.yml/badge.svg)](https://github.com/%s/actions/workflows/ci.yml) | '%(ref,ref)
+
+        wfs = ['ci.yml'] if not name in workflows else workflows[name]
+        for wf in wfs:
+            info += '  [![OMV](https://github.com/%s/actions/workflows/%s/badge.svg)](https://github.com/%s/actions/workflows/%s) '%(ref,wf,ref,wf)
+
+        info += '  | '
+
         info += '  [![GitHub pull requests](https://img.shields.io/github/issues-pr/%s)](https://github.com/%s/pulls) | \n'%(ref,ref)
 
 
