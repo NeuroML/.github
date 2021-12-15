@@ -9,14 +9,15 @@ info = """
 count = 0
 
 
-allrefs = {'Core Java repositories': jrefs,
+allrefs = {'Specification repositories': srefs,
+           'Core Java repositories': jrefs,
            'Core Python repositories': pyrefs,
            'Related repositories': otherrefs,}
 
 for cat in allrefs:
     info += '\n### %s\n\n'%cat
 
-    info += '| Model | Tests | PRs |\n'
+    info += '| Repository | Tests | PRs |\n'
     info += '|----------|:------:|:------:|\n'
 
     refs = allrefs[cat]
