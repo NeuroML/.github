@@ -17,7 +17,7 @@ allrefs = {'Specification repositories': srefs,
 for cat in allrefs:
     info += '\n### %s\n\n'%cat
 
-    info += '| Repository | Tests | Tests (dev) | PRs |\n'
+    info += '| Repository | Tests | Tests (development) | PRs |\n'
     info += '|----------|:------:|:------:|:------:|\n'
 
     refs = allrefs[cat]
