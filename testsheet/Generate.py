@@ -17,8 +17,8 @@ allrefs = {'Specification repositories': srefs,
 for cat in allrefs:
     info += '\n### %s\n\n'%cat
 
-    info += '| Repository | Tests | PRs |\n'
-    info += '|----------|:------:|:------:|\n'
+    info += '| Repository | Tests | Tests (dev) | PRs |\n'
+    info += '|----------|:------:|:------:|:------:|\n'
 
     refs = allrefs[cat]
     for name in refs.keys():
@@ -29,10 +29,12 @@ for cat in allrefs:
         info += '| <a href="https://github.com/%s">%s</a> |'%(ref,name)
 
         wfs = ['ci.yml'] if not name in workflows else workflows[name]
+        dev = ''
         for wf in wfs:
             info += '  [![OMV](https://github.com/%s/actions/workflows/%s/badge.svg)](https://github.com/%s/actions/workflows/%s) '%(ref,wf,ref,wf)
+            dev += '  [![OMV](https://github.com/%s/actions/workflows/%s/badge.svg?branch=development)](https://github.com/%s/actions/workflows/%s) '%(ref,wf,ref,wf)
 
-        info += '  | '
+        info += '  | %s |'%dev
 
         info += '  [![GitHub pull requests](https://img.shields.io/github/issues-pr/%s)](https://github.com/%s/pulls) | \n'%(ref,ref)
 
